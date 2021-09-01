@@ -11,21 +11,23 @@ if(y == undefined){
     y = 4
 }
 
-
-
 while(listaSalvi.length < y){
-    let numeroPrompt = parseInt(prompt("Iserisci un numero"));
-    if(listaSalvi.indexOf(numeroPrompt) == -1) {
+    let numeroPrompt = parseInt(prompt("Inserisci un numero tra 1 e 100"));
+    if(numeroPrompt > 100 || numeroPrompt <= 0){
+        alert("Numero inserito non valido")
+        numeroPrompt
+    }else if(listaSalvi.indexOf(numeroPrompt) == -1) {
         listaSalvi.push(numeroPrompt);
         console.log(listaSalvi);
     }else{
-            alert("Hai gia inserito questo numero")
-            numeroPrompt
+        alert("Hai gia inserito questo numero")
+        numeroPrompt
     }
-
-
-    if(listaBomba.includes(numeroPrompt)){
-        console.log("Sei morto, hai fatto " + listaSalvi.length + " passi prima di morire");
+    if(listaBomba.includes(numeroPrompt) && listaSalvi.length <= 1){
+        console.log("Sei morto, hai fatto " + listaSalvi.length + " passo prima di ESPLODERE");
+        break
+    }else if(listaBomba.includes(numeroPrompt)){
+        console.log("Sei morto, hai fatto " + listaSalvi.length + " passi prima di ESPLODERE");
         break
     }else if(listaSalvi.length == y){
         console.log("COMPLIMENTI sei unscito indenne dal CAMPO MINATO");
@@ -34,33 +36,6 @@ while(listaSalvi.length < y){
         console.log("vivo");
     }
 }
-
-
-
-
-
-// for(i=0;listaSalvi.length < 16;i++){
-//     let numeroPrompt = parseInt(prompt("Iserisci un numero"));
-//     if(listaSalvi.indexOf(numeroPrompt) == -1) {
-//         listaSalvi.push(numeroPrompt);
-//         console.log(listaSalvi);
-//     }else{
-//             alert("Hai gia inserito questo numero")
-//             numeroPrompt
-//     }
-
-
-//     if(listaBomba.includes(numeroPrompt)){
-//         console.log("Sei morto, hai fatto " + listaSalvi.length + " passi prima di morire");
-//         break
-//     }else if(listaSalvi.length == 16){
-//         console.log("COMPLIMENTI sei unscito indenne dal CAMPO MINATO");
-//     }
-//     else{
-//         console.log("vivo");
-//     }
-// }
-
 
 
 
